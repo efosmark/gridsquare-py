@@ -1,8 +1,7 @@
 Gridsquare
 ==========
 
-This module provides an easy way to convert between the Maidenhead Locator 
-System (gridsquares) and the World Geodetic System 1984 (WGS-84) coordinate
+This module provides an easy way to convert between the [http://en.wikipedia.org/wiki/Maidenhead_Locator_System](Maidenhead Locator System) (gridsquares) and the [World Geodetic System](http://en.wikipedia.org/wiki/World_Geodetic_System) (WGS-84) coordinate
 system.
 
 
