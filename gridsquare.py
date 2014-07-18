@@ -48,6 +48,10 @@ def to_gridsquare(latitude, longitude):
 	""" Takes in a WGS-84 compatible combination of latitude and longitude
 	values, and creates the string representation of the Maidenhead location,
 	also known as a "gridsquare". """ 
+	if not (-180 <= latitude <= 180):
+		raise ValueError("Invalid latitude specified.")
+	if not (-180 <= longitude <= 180):
+		raise ValueError("Invalid longitude specified.")
 	lat = _lat_to_gridsquare(latitude)
 	lng = _lng_to_gridsquare(longitude)
 	return "".join([str(x) + str(y) for x, y in zip(lng,lat)])
@@ -55,6 +59,8 @@ def to_gridsquare(latitude, longitude):
 def to_latlng(gs):
 	""" Takes in a Maidenhead locator string (gridsquare) and converts it into
 	a tuple of WGS-84 compatible (latitude, longitude). """
+	if len(gs) < 4:
+		raise ValueError("Invalid gridsquare specified.")
 	lat, lng = None, None
 	if len(gs) > 4:
 		lng = _to_lng(gs[0], int(gs[2]), gs[4])
